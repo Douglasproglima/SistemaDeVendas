@@ -11,8 +11,6 @@ import javax.servlet.ServletResponse;
 
 import org.hibernate.SessionFactory;
 
-import com.kurtphpr.sistema.vendas.HibernateUtil;
-
 public class ConexaoHibernateFilter implements Filter {
 
 	private SessionFactory sf;
@@ -25,6 +23,7 @@ public class ConexaoHibernateFilter implements Filter {
 	public void doFilter(ServletRequest servletFilter, 
 						 ServletResponse servletResponse, 
 						 FilterChain chain) throws IOException, ServletException {
+		
 		try {
 			this.sf.getCurrentSession().beginTransaction();
 			chain.doFilter(servletFilter, servletResponse);
@@ -46,6 +45,7 @@ public class ConexaoHibernateFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig conf) throws ServletException {
+		
 		this.sf = HibernateUtil.getSession();
 	}
 

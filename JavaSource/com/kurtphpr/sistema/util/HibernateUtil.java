@@ -1,4 +1,4 @@
-package com.kurtphpr.sistema.vendas;
+package com.kurtphpr.sistema.util;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -6,6 +6,7 @@ public class HibernateUtil {
 	private static final SessionFactory session = buildSessionFactory();
 	
 	private static SessionFactory buildSessionFactory() {
+		
 		try {
 			Configuration cfg = new Configuration();
 			cfg.configure("hibernate.cfg.xml");
@@ -17,6 +18,7 @@ public class HibernateUtil {
 	}
 	
 	public static SessionFactory getSession(){
+		
 		return session;
 	}
 }

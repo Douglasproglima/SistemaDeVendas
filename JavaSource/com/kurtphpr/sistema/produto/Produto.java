@@ -22,6 +22,22 @@ public class Produto {
 	private Date dataCadastro;
 	private Integer estoque;
 	private float valor;
+	
+	//Construtor Produto sem argumentos, é necessário quando há um construtor com argumentos conforme o contrutor abaixo;
+	public Produto(){
+		
+	}
+	
+	//Construtor Produto com argumentos, que irá criar os produtos;
+	public Produto(String unidade, String descricao, Date dataCadastro, Integer estoque, float valor) {
+		
+		this.unidade = unidade;
+		this.descricao = descricao;
+		this.dataCadastro = dataCadastro;
+		this.estoque = estoque;
+		this.valor = valor;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
