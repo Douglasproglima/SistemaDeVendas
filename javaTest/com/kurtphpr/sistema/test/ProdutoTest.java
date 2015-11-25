@@ -124,24 +124,24 @@ public class ProdutoTest {
 	}
 	
 	//Método auxiliar para fechar conexão;
-		@AfterClass //Essa anotação informa que esse método fechaConexao execute após todos os testes
-		public static void fechaConexao(){
+	@AfterClass //Essa anotação informa que esse método fechaConexao execute após todos os testes
+	public static void fechaConexao(){
+		
+		try {
+			transacao.commit();//Comita ação realizada;	
+			
+		} catch (Throwable erro01) {
+			System.out.println("Erro 01 ao comitar os dados: " + erro01.getMessage());
+		
+		}finally {
 			
 			try {
-				transacao.commit();//Comita ação realizada;	
-				
-			} catch (Throwable erro01) {
-				System.out.println("Erro 01 ao comitar os dados: " + erro01.getMessage());
-			
-			}finally {
-				
-				try {
-					if(sessao.isOpen()){ //Testa se sessão estiver aberta para fechar;
-						sessao.close();
-					}	
-				} catch (Exception erro02) {
-					System.out.println("Erro 02 ao fechar conexão: " + erro02.getMessage());
-				}
+				if(sessao.isOpen()){ //Testa se sessão estiver aberta para fechar;
+					sessao.close();
+				}	
+			} catch (Exception erro02) {
+				System.out.println("Erro 02 ao fechar conexão: " + erro02.getMessage());
 			}
-		}	
+		}
+	}	
 }
