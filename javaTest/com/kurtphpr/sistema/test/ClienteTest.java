@@ -52,15 +52,15 @@ public class ClienteTest {
 		
 		Cliente clienteC1 = new Cliente();
 		
-		clienteC1.setNome("Douglas Lima");
-		clienteC1.setEndereco("Rua Governador Magalhães Pinto");
-		clienteC1.setRenda(500f);
+		/*clienteC1.setNome("Ronaldo");
+		clienteC1.setEndereco("Rua Teste");
+		clienteC1.setRenda(5000f);
 		clienteC1.setCpf("08639236580");
-		
+		*/
 		ClienteRN clienteRN = new ClienteRN();
 		
 		clienteRN.salvar(clienteC1);
 		
-		assertEquals(true, true); 
+		assertEquals(true, true);
 	}
 }
