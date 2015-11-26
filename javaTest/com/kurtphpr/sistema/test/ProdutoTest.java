@@ -84,7 +84,7 @@ public class ProdutoTest {
 		
 		Criteria lista = sessao.createCriteria(Produto.class); //Objeto Criteria irá retorna uma lista de produtos do banco;
 		@SuppressWarnings("unchecked")						  //Utiliza essa anotação para ignorar os alertas mostrados pela IDE;
-		List<Produto> produtos = lista.list();				  //Cria uma lista que recebe a lista do Criteria utilizando o método list();
+		List<Produto> produtos = lista.list();				 //Cria uma lista que recebe a lista do Criteria utilizando o método list();
 		
 		assertEquals(5,  produtos.size());
 	}

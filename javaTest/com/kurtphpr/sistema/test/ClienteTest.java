@@ -2,6 +2,8 @@ package com.kurtphpr.sistema.test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.AfterClass;
@@ -62,5 +64,13 @@ public class ClienteTest {
 		clienteRN.salvar(clienteC1);
 		
 		assertEquals(true, true);
+	}
+	
+	@Test
+	public void listarCliente(){
+		
+		ClienteRN clienteRN = new ClienteRN();
+		List<Cliente> lista = clienteRN.listar();
+		assertEquals(5, lista.size());
 	}
 }

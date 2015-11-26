@@ -1,5 +1,7 @@
 package com.kurtphpr.sistema.cliente;
 
+import java.util.List;
+
 import com.kurtphpr.sistema.util.DAOFactory;
 
 public class ClienteRN {
@@ -13,5 +15,10 @@ public class ClienteRN {
 	public void salvar(Cliente clienteC1) {
 		
 		this.clienteDAO.salvar(clienteC1);
+	}
+
+	public List<Cliente> listar() {
+		
+		return this.clienteDAO.listar();
 	}
 }
