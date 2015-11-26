@@ -1,1 +1,1 @@
-<META HTTP-EQUIV="refresh" CONTENT="0, URL=paginaInicial.jsf">
+<META HTTP-EQUIV="refresh" CONTENT="0, URL=cliente.jsf">

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<!-- 
+		Replace path to template, title, header and body
+		with actual data.
+	 -->
+	<ui:composition template="/templates/template.xhtml">
+			<ui:define name="pageTitle">Cliente</ui:define>
+			<ui:define name="pageHeader">Cadastro de Clientes</ui:define>
+			<ui:define name="body">
+				<form id="clienteEdicao" >
+					<h:message />	
+					<h:panelGrid columns="2"> 
+						<h:outputLabel value="Nome:" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.nome}"/>
+					
+						<h:outputLabel value="CPF:" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.cpf}"/>
+						
+						<h:outputLabel value="E-mail:" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.email}"/>
+						
+						<h:outputLabel value="Endereço:" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.endereco}"/>
+						
+						<h:outputLabel value="Salário:" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.renda}"/>
+					</h:panelGrid>
+					
+					<h:commandButton value="Salvar" action="#{clienteBean.salvar()}"  />
+					
+				</form>
+			</ui:define>
+	</ui:composition>
+
+</html>
