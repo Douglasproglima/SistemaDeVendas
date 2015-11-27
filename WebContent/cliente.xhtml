@@ -15,7 +15,9 @@
 						<h:inputText value="#{clienteBean.clienteSelecionado.nome}" />
 					
 						<h:outputLabel value="CPF:" />
-						<h:inputText value="#{clienteBean.clienteSelecionado.cpf}" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.cpf}" >
+						<f:validator validatorId="cpf" />
+						</h:inputText>
 						
 						<h:outputLabel value="Endereço:" />
 						<h:inputText value="#{clienteBean.clienteSelecionado.endereco}" />
@@ -24,7 +26,9 @@
 						<h:inputText value="#{clienteBean.clienteSelecionado.email}" />
 						
 						<h:outputLabel value="Salário:" />
-						<h:inputText value="#{clienteBean.clienteSelecionado.renda}" />
+						<h:inputText value="#{clienteBean.clienteSelecionado.renda}" >
+						<f:convertNumber minFractionDigits="2"/>
+						</h:inputText>
 					</h:panelGrid>
 					
 					<h:commandButton value="Salvar" action="#{clienteBean.salvar}" />
@@ -33,40 +37,41 @@
 				
 				<h:form id="lista">
 					<h:dataTable value="#{clienteBean.lista}" var="cliente" border='2'>
-					<f:facet name="header">Listagem de Clientes</f:facet>
-					
-					<h:column>
-					<f:facet name="header">Nome</f:facet>
-					#{cliente.nome}
-					</h:column>
-					
-					<h:column>
-					<f:facet name="header">CPF</f:facet>
-					#{cliente.cpf}
-					</h:column>
-					
-					<h:column>
-					<f:facet name="header">Data Cadastro</f:facet>
-					<h:outputText value="#{cliente.dataCadastro}" >
-					<f:convertDateTime  dateStyle="medium"/>
-					</h:outputText>
-					</h:column>
-					
-					<h:column>
-					<f:facet name="header">Endereço</f:facet>
-					#{cliente.endereco}
-					</h:column>
-					
-					<h:column>
-					<f:facet name="header">E-Mail</f:facet>
-					#{cliente.email}
-					
-					<h:column>
-					<f:facet name="header">Renda</f:facet>
-					#{cliente.renda}
-					</h:column>
-					
-					</h:column>
+						<f:facet name="header">Listagem de Clientes</f:facet>
+						
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							#{cliente.nome}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">CPF</f:facet>
+							#{cliente.cpf}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Data Cadastro</f:facet>
+							<h:outputText value="#{cliente.dataCadastro}" >
+								<f:convertDateTime  dateStyle="medium"/>
+							</h:outputText>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Endereço</f:facet>
+							#{cliente.endereco}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">E-Mail</f:facet>
+							#{cliente.email}
+						</h:column>
+							
+						<h:column>
+						<f:facet name="header">Renda</f:facet>
+							<h:outputText value="#{cliente.renda}" >
+								<f:convertNumber currencyCode="BRL" type="currency" />
+							</h:outputText>
+						</h:column>
 					
 					</h:dataTable>
 				</h:form>

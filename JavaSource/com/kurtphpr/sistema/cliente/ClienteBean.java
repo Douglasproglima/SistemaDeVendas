@@ -23,7 +23,7 @@ public class ClienteBean {
 		clienteSelecionado.setDataCadastro(new Date());
 		clienteRN.salvar(clienteSelecionado);
 		
-		FacesMessage faces = new FacesMessage("Cliente cadastro com sucesso!");
+		FacesMessage faces = new FacesMessage("Cliente cadastrado com sucesso!");
 		FacesContext contexto = FacesContext.getCurrentInstance();
 		contexto.addMessage(null, faces);
 	}
