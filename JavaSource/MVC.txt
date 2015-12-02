@@ -1,0 +1,22 @@
+//Class cliente com as caracteristicas do cliente;
+Cliente.java->Entidades(Domínio)
+
+//Class cliente.DAO ou seja a interface, terá somente a declaração dos métodos que o cliente irá ter, não terá nenhuma implementação;
+ClienteDAO.java(Interface)
+
+//ClienteDAOHibernate será a implementação da sessão, as consultas SQLs;
+ClienteDAOHibernate.java(Implementação da interface)->Session-SQL e Querys
+
+//Cliente.RN será instanciado o DAO do cliente e onde será feita toda a regra de negócio;
+Cliente.RN.java(Regra de Negócio) Instanciar os DAOs
+
+//ClienteBean será responsável por instanciar as regras de negócios e efetuar os direcionar, essa Class vai chamada diretamente na página;
+//Ela vai retornar uma String que será retornados os objetos;
+ClienteBean.java(Menage Bean) Instanciar RN e fazer Redirecionamentos.
+
+//Cliente.xtml será a visão, será responsável pela exibição dos dados, dos formulários, das tabelas;
+Cliente.xtml(Pagina JSF) exibição dos dados, formulários, tabelas etc.
+
+//Neste pacote teremos uma Class DAOFactory, será utilizada para construir os DaOs, que serão instanciados nas regras de negócio; 
+pacote util
+DAOFactory.java-Construtor de DAOs

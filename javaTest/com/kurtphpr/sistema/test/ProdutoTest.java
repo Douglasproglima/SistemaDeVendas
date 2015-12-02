@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.kurtphpr.sistema.cliente.Cliente;
 import com.kurtphpr.sistema.produto.Produto;
 import com.kurtphpr.sistema.util.HibernateUtil;
 
@@ -142,6 +143,6 @@ public class ProdutoTest {
 			} catch (Exception erro02) {
 				System.out.println("Erro 02 ao fechar conexão: " + erro02.getMessage());
 			}
-		}
-	}	
+		}	
+	}
 }
