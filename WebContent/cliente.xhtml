@@ -28,7 +28,7 @@
 						
 						<h:outputLabel value="Salário:" />
 						<h:inputText value="#{clienteBean.clienteSelecionado.renda}" >
-						<f:convertNumber minFractionDigits="2"/>
+							<f:convertNumber minFractionDigits="2"/>
 						</h:inputText>
 					</h:panelGrid>
 					
@@ -37,7 +37,7 @@
 				</h:form>
 				
 				<h:form id="lista">
-					<h:dataTable value="#{clienteBean.lista}" var="cliente" border='2'>
+					<h:dataTable value="#{clienteBean.lista}" var="cliente" border='2' rendered="#{not empty clienteBean.lista}">
 						<f:facet name="header">Listagem de Clientes</f:facet>
 						
 						<h:column>
@@ -72,10 +72,18 @@
 						</h:column>
 							
 						<h:column>
-						<f:facet name="header">Renda</f:facet>
+							<f:facet name="header">Renda</f:facet>
 							<h:outputText value="#{cliente.renda}" >
 								<f:convertNumber currencyCode="BRL" type="currency" />
 							</h:outputText>
+						</h:column>
+						
+						<h:column>	
+							<f:facet name="header">Ações</f:facet>
+							<h:commandLink action="#{clienteBean.excluir}" onclick="if(!confirm('Deseja realmente excluir o cliente #{cliente.nome}')) return false;">
+								<h:graphicImage library="imagens" name="symbol_delete.png"/>
+								<f:setPropertyActionListener target="#{clienteBean.clienteSelecionado}" value="#{cliente}"/>
+							</h:commandLink>
 						</h:column>
 					
 					</h:dataTable>

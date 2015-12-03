@@ -9,6 +9,7 @@ public class ClienteRN {
 	private ClienteDAO clienteDAO;
 	
 	public ClienteRN(){
+		
 		this.clienteDAO = DAOFactory.criaClienteDAO();
 	}
 

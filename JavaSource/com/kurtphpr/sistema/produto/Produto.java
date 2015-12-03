@@ -14,7 +14,6 @@ public class Produto {
 
 	@Id
 	@GeneratedValue
-	
 	private Integer id;
 	private String unidade;
 	private String descricao;
@@ -73,7 +72,5 @@ public class Produto {
 	}
 	public void setValor(float valor) {
 		this.valor = valor;
-	}
-	
-	
+	}	
 }

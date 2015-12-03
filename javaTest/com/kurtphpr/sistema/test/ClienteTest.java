@@ -73,6 +73,7 @@ public class ClienteTest {
 		List<Cliente> lista = clienteRN .listar();
 		
 		for (Cliente cliente : lista) {
+			
 			clienteRN.excluir(cliente);
 		}
 	}
@@ -143,7 +144,6 @@ public class ClienteTest {
 		clienteRN.alterar(clientePesquisado);						    //Finaliza alteração com o clienteRN;
 		
 		Cliente clienteAlterado = clienteRN.pesquisar("te 01");		 	 //Pesquisou o registro alterado;
-		assertEquals("Novo Endereco", clienteAlterado.getEndereco());	//Compara se o registro alterado está presente no BD;
-		
+		assertEquals("Novo Endereco", clienteAlterado.getEndereco());	//Compara se o registro alterado está presente no BD;		
 	}
 }

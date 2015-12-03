@@ -1,6 +1,5 @@
 package com.kurtphpr.sistema.cliente;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class ClienteBean {
 
 	private List<Cliente> lista = null;
 	
-	public void salvar(){
+	public void salvar() {
 	
 		ClienteRN clienteRN = new ClienteRN();
 		clienteSelecionado.setDataCadastro(new Date());
@@ -26,6 +25,8 @@ public class ClienteBean {
 		FacesMessage faces = new FacesMessage("Cliente cadastrado com sucesso!");
 		FacesContext contexto = FacesContext.getCurrentInstance();
 		contexto.addMessage(null, faces);
+		
+		this.lista = null;
 	}
 
 	public Cliente getClienteSelecionado() {
@@ -43,5 +44,12 @@ public class ClienteBean {
 			lista = clienteRN.listar();
 		}
 		return lista;
+	}
+	
+	public void excluir(){
+		
+		ClienteRN clienteRN = new ClienteRN();
+		clienteRN.excluir(this.clienteSelecionado);
+		this.lista = null;
 	}
 }
