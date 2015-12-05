@@ -28,10 +28,10 @@ public class Produto {
 	}
 	
 	//Construtor Produto com argumentos, que irá criar os produtos;
-	public Produto(String unidade, String descricao, Date dataCadastro, Integer estoque, float valor) {
+	public Produto(String descricao, String unidade, Date dataCadastro, Integer estoque, float valor) {
 		
-		this.unidade = unidade;
 		this.descricao = descricao;
+		this.unidade = unidade;
 		this.dataCadastro = dataCadastro;
 		this.estoque = estoque;
 		this.valor = valor;
@@ -43,18 +43,18 @@ public class Produto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUnidade() {
-		return unidade;
-	}
-	public void setUnidade(String unidade) {
-		this.unidade = unidade;
-	}
 	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	public String getUnidade() {
+		return unidade;
+	}
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}	
 	public Date getDataCadastro() {
 		return dataCadastro;
 	}

@@ -6,17 +6,19 @@
 	  xmlns:ui="http://java.sun.com/jsf/facelets">
 	 
 	<ui:composition template="/templates/template.xhtml">
-			<ui:define name="pageTitle">Sistemas Vendas Java</ui:define>
+			<ui:define name="pageTitle">Cliente</ui:define>
 			<ui:define name="pageHeader">Cadastro de Clientes</ui:define>
 			<ui:define name="body">
-				<h:form id="clienteEdicao" >
-				<h:messages />	
-					<h:panelGrid columns="2"> 
+				<h:form id="clienteEdicao" ><h:messages />
+					
+				<h:inputHidden value="#{clienteBean.clienteSelecionado.id}" />
+				
+					<h:panelGrid columns="2">
 						<h:outputLabel value="Nome:" />
-						<h:inputText value="#{clienteBean.clienteSelecionado.nome}" />
+						<h:inputText id="Nome" value="#{clienteBean.clienteSelecionado.nome}" required="true"/>
 					
 						<h:outputLabel value="CPF:" />
-						<h:inputText value="#{clienteBean.clienteSelecionado.cpf}" >
+						<h:inputText id="CPF" value="#{clienteBean.clienteSelecionado.cpf}" required="true">
 						<f:validator validatorId="cpf" />
 						</h:inputText>
 						
@@ -26,12 +28,13 @@
 						<h:outputLabel value="E-Mail:" />
 						<h:inputText value="#{clienteBean.clienteSelecionado.email}"/>
 						
-						<h:outputLabel value="Salário:" />
-						<h:inputText value="#{clienteBean.clienteSelecionado.renda}" >
+						<h:outputLabel value="Salário:" required="true"/>
+						<h:inputText id="Salário" value="#{clienteBean.clienteSelecionado.renda}" >
 							<f:convertNumber minFractionDigits="2"/>
 						</h:inputText>
 					</h:panelGrid>
 					
+					<h:commandButton value="Novo" action="#{clienteBean.salvar}" />
 					<h:commandButton value="Salvar" action="#{clienteBean.salvar}" />
 					
 				</h:form>
@@ -79,9 +82,14 @@
 						</h:column>
 						
 						<h:column>	
+								<h:graphicImage library="imagens" name="BotaoDeletarNew.png" style="width : 25px; height : 25px;"/>
 							<f:facet name="header">Ações</f:facet>
 							<h:commandLink action="#{clienteBean.excluir}" onclick="if(!confirm('Deseja realmente excluir o cliente #{cliente.nome}')) return false;">
-								<h:graphicImage library="imagens" name="symbol_delete.png"/>
+								<f:setPropertyActionListener target="#{clienteBean.clienteSelecionado}" value="#{cliente}"/>
+							</h:commandLink>
+
+							<h:commandLink  >
+								<h:graphicImage library="imagens" name="BotaoAlterarNew02.png" style="width : 25px; height : 25px;"/>
 								<f:setPropertyActionListener target="#{clienteBean.clienteSelecionado}" value="#{cliente}"/>
 							</h:commandLink>
 						</h:column>
