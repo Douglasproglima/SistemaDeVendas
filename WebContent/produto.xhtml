@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/templates/template.xhtml">
+			<ui:define name="pageTitle">Produto</ui:define>
+			<ui:define name="pageHeader">Cadastro de Produtos</ui:define>
+			<ui:define name="body">
+				<h:form id="produtoEdicao">
+				<h:messages />
+				<h:inputHidden value="#{produtoBean.produtoSelecionado.id}" />	
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Produto:" />
+						<h:inputText id="Produto" value="#{produtoBean.produtoSelecionado.descricao}" required="true"/>
+					
+						<h:outputLabel value="Unidade:" />
+						<h:inputText id="Unidade" value="#{produtoBean.produtoSelecionado.unidade}" required="true"/>
+						
+						<h:outputLabel value="Qtde. Estoque:" />
+						<h:inputText id="Qtde Estoque" value="#{produtoBean.produtoSelecionado.estoque}" required="true"/>
+						
+						 
+						<h:outputLabel value="Valor Unitário:" />
+						<h:inputText id="Valor Unitário" value="#{produtoBean.produtoSelecionado.valor}" required="true">
+							<f:convertNumber minFractionDigits="2" />
+						</h:inputText>
+					</h:panelGrid>
+					
+					<h:commandButton value="Novo" action="#{clienteBean.salvar}" />
+					<h:commandButton value="Salvar" action="#{produtoBean.salvar}"/>
+				</h:form>
+					
+				<h:form id="lista">
+					<h:dataTable value="#{produtoBean.lista}" var="produto" border='2' rendered="#{not empty produtoBean.lista}" >
+						<f:facet name="header">Listagem de Produtos</f:facet>
+						
+						<h:column>
+							<f:facet name="header">Produto</f:facet>
+							#{produto.descricao}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Unidade</f:facet>
+							#{produto.unidade}
+						</h:column>
+					
+						<h:column>
+							<f:facet name="header">Qtde. Estoque</f:facet>
+							#{produto.estoque}
+						</h:column>
+							
+						<h:column>
+							<f:facet name="header">Valor Unitário</f:facet>
+							<h:outputText value="#{produto.valor}" >
+								<f:convertNumber currencyCode="BRL" type="currency" />
+							</h:outputText>
+						</h:column>
+						
+						<h:column>	
+							<f:facet name="header">Ações</f:facet>
+							<h:commandLink action="#{produtoBean.excluir}" onclick="if(!confirm('Deseja realmente excluir o produto #{produto.descricao}')) return false;">
+								<h:graphicImage library="imagens" name="BotaoDeletarNew.png" style="width : 25px; height : 25px;"/>
+							<f:setPropertyActionListener target="#{produtoBean.produtoSelecionado}" value="#{produto}"/>
+							</h:commandLink>
+
+							<h:commandLink>
+								<h:graphicImage library="imagens" name="BotaoAlterarNew02.png" style="width : 25px; height : 25px;"/>
+							<f:setPropertyActionListener target="#{produtoBean.produtoSelecionado}" value="#{produto}"/>
+							</h:commandLink>
+						</h:column>
+					
+					</h:dataTable>
+				</h:form>
+			</ui:define>
+	</ui:composition>
+
+</html>

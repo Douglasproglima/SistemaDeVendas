@@ -4,6 +4,8 @@ import com.kurtphpr.sistema.cliente.ClienteDAO;
 import com.kurtphpr.sistema.cliente.ClienteDAOHibernate;
 import com.kurtphpr.sistema.produto.ProdutoDAO;
 import com.kurtphpr.sistema.produto.ProdutoDAOHibernate;
+import com.kurtphpr.sistema.venda.VendaDAO;
+import com.kurtphpr.sistema.venda.VendaDAOHibernate;
 
 //Nesta Class será atribuído a sessão ao usuário DAO;
 public class DAOFactory {
@@ -24,5 +26,14 @@ public class DAOFactory {
 		produtoDAOHibernate.setSessao(HibernateUtil.getSession().getCurrentSession());
 		
 		return produtoDAOHibernate;
+	}
+	
+	public static VendaDAO criaVendaDAO(){
+		
+		VendaDAOHibernate vendaDAOHibernate = new VendaDAOHibernate();
+		
+		vendaDAOHibernate.setSessao(HibernateUtil.getSession().getCurrentSession());
+		
+		return vendaDAOHibernate;
 	}
 }
