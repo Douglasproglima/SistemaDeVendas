@@ -19,12 +19,14 @@
 				</div>
 			
 				<div id="mainnav">
-					<ul>  			
-						<li><a href="#">Cadastro de Clientes</a></li>  			
-						<li><a href="#">Cadastro de Produtos</a></li>  			
-						<li><a href="#">Registro da Vendas</a></li>  			
-						<li><a href="#">Sobre</a></li>  		
-					</ul>
+					<h:form>
+						<ul>  			
+							<h:commandLink action="clienteBean" value="Cadastro de Clientes  / " />
+							<h:commandLink action="produtoBean" value="Cadastro de Produtos  / " />
+							<h:commandLink action="registroVendas" value="Registro de Vendas  / " />  			
+							<li><a href="#">Sobre</a></li>  		
+						</ul>
+					</h:form>
 				</div>
       		</div>
     
