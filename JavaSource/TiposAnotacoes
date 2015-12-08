@@ -1,0 +1,12 @@
+Na tabela abaixo é apresentado outros tipos de anotações de escopo.
+
+Escopo	        Descrição
+@RequestScoped....: O bean vive ao longo da vida de uma requisição HTTP request-response.
+@NoneScoped	Bean..: vive ao long de uma única avaliação EL. Eles se criam em cima de uma avaliação EL e 
+                    são destruídas imediatamente após a avaliação EL
+@ViewScoped	Bean..: vive enquanto o usuário está interagindo com a mesma visão JSF na janela do browser. Ele se criou 
+                    em cima de um pedido HTTP e será destruído quando o usuário for para uma visão diferente .
+@SessionScoped....:	Bean vive ao longo de uma sessão HTTP.
+@ApplicationScoped:	Bean criado após a primeira solicitação HTTP envolvendo o bean em questão e são destruídas 
+                    quando o aplicativo web é fechado.
+@CustomScoped.....:	Bean vive dependendo da customatização.
